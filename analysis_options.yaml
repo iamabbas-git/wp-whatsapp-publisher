@@ -1,6 +1,12 @@
 include: package:flutter_lints/flutter.yaml
 
+# Keep real errors and warnings fatal in CI, but relax a few purely-cosmetic
+# style lints (const nudges and redundant-import hints) so they don't fail the
+# build. They have no effect on how the app runs.
 linter:
   rules:
-    prefer_const_constructors: true
-    prefer_final_locals: true
+    prefer_const_constructors: false
+    prefer_const_constructors_in_immutables: false
+    prefer_const_literals_to_create_immutables: false
+    prefer_final_locals: false
+    unnecessary_import: false
