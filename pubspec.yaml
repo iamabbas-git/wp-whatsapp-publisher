@@ -16,7 +16,7 @@ dependencies:
   # Rich text editor (Delta model, converts cleanly to HTML for WordPress).
   # Pinned exactly: flutter_quill's API changes between majors, and the compose
   # screen below is written against this specific version's API.
-  flutter_quill: 10.8.5
+  flutter_quill: ^11.5.1
   vsc_quill_delta_to_html: ^1.0.5
 
   # WhatsApp-style emoji picker
