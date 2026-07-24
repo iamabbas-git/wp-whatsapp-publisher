@@ -1,0 +1,27 @@
+<!-- =====================================================================
+     ANDROID MANIFEST ADDITIONS
+     After running `flutter create .` (see README step 3), open
+     android/app/src/main/AndroidManifest.xml and merge the two blocks
+     below into it.
+     ===================================================================== -->
+
+<!-- 1) Add INSIDE <manifest ...> but OUTSIDE <application>, near the top.
+        Lets url_launcher open the wa.me link and share_plus see WhatsApp
+        (required on Android 11 / API 30+ due to package visibility rules). -->
+<uses-permission android:name="android.permission.INTERNET" />
+
+<queries>
+    <!-- Open https links, e.g. https://wa.me/?text=... -->
+    <intent>
+        <action android:name="android.intent.action.VIEW" />
+        <data android:scheme="https" />
+    </intent>
+    <!-- Share plain text to any app (the system share sheet) -->
+    <intent>
+        <action android:name="android.intent.action.SEND" />
+        <data android:mimeType="text/plain" />
+    </intent>
+    <!-- Make WhatsApp + WhatsApp Business explicitly visible -->
+    <package android:name="com.whatsapp" />
+    <package android:name="com.whatsapp.w4b" />
+</queries>
